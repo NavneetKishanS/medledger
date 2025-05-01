@@ -1,0 +1,81 @@
+curl -v -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdHVzZXIiLCJleHAiOjE3NDMxMDY5MjZ9.kyckDywA3wSAG3NoZ-aePJjrm0nIRbaD0BL_MtDl7LA" "http://localhost:5000/patients/"
+
+curl -v -X POST "http://localhost:5000/patients/create" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdHVzZXIiLCJleHAiOjE3NDQzODE1MjN9.h9_2jS5AiTdQBZygoNN4n8S1LT_zOxJWTpNPv_aFlIM" \
+     -d '{
+           "name": "John Doe",
+           "birthDate": "1984-02-20"
+         }'
+
+curl -v -X PUT "http://localhost:5000/patients/update/2" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdHVzZXIiLCJleHAiOjE3NDMxMDY5MjZ9.kyckDywA3wSAG3NoZ-aePJjrm0nIRbaD0BL_MtDl7LA" \
+     -d '{
+           "name": [{"family": "Doe", "given": ["Johnathan"]}],
+           "birthDate": "1984-02-20"
+         }'
+
+
+curl -v -X DELETE "http://localhost:5000/patients/delete/20" \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdHVzZXIiLCJleHAiOjE3NDMxMTYzMjl9.b5Ft_D3NQqiV9EewJF9Xjbq5zRujO7xJRDzg3kbeQJ8"
+
+
+curl -v -X POST http://localhost:5000/patients/create \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "Alice A",
+        "birthDate": "1990-01-01",
+        "username": "alicee",
+        "password": "secret1"
+      }'
+
+
+curl -L -X POST http://localhost:5000/vitals \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwYXRpZW50MSIsInJvbGUiOiJwYXRpZW50IiwiZXhwIjoxNzQ1MzM0NTY0fQ.li60ErzqmpQMQTmPZKQnuYP0aaSLX98X6k9X9Gf8tU0" \
+  -H "Content-Type: application/json" \
+  -d '{
+       "patient_id":"1",
+       "spo2":85.0,
+       "temperature":39.2,
+       "heart_rate":130
+     }'
+
+
+after login, the admin should be able to see the list of all the patients with their IDs and names(tell me what other data can I show from my fhir data which would be relevant) in a table and on clicking any of them it should open a page and show the same details as the patient would see...the admin's dashboard should have a button to create a new patient in a form(with the fields that is used to create a new patient), along the list on the dashboard the admin should be able to delete patient records as well...give the complete codes of the files you're changing and the guide to testing them as usual....make the UI aesthetic and functional(in terms of operationality and not exactly much of the css)
+
+TODO:
+-RSA encrypt every kind of POSTS
+-add mongo POST to each endpoint
+-RSA decrypt for all GETs
+-vitals simulation with mongo saving
+-vitals chart for patients dashboard
+-endpoint to fetch all mongo docs for latex pdf gen
+-docker compose
+
+
+-----
+
+WeasyPrint could not import some external libraries. Please carefully follow the installation steps before reporting an issue:
+https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation
+https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#troubleshooting 
+
+-----
+
+Subsection	Why add it
+Blockchain Audit Trail	Introduce the idea of immutable event logging to strengthen data integrity and compliance.
+Streaming Anomaly Detection	Explain why real-time vitals monitoring with ML adds a predictive intelligence layer to healthcare records.
+MongoDB Persistence	Justify having a fast, document-oriented database for analytics, reporting, and scalability, alongside FHIR.
+JWT Authentication and Access Control	Highlight the importance of secure, role-based access to sensitive medical information.
+
+curl -X POST http://localhost:5000/token \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "username=abc&password=pass"
+
+fastapi
+uvicorn
+httpx
+pyjwt
+pydantic
+python-dotenv

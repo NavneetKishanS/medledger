@@ -1,0 +1,4 @@
+curl -X POST http://localhost:5000/patients/create \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdHVzZXIiLCJleHAiOjE3Mzk5ODA2MzV9.Z3ZM-eYHYRmNArX2DL9XZn50nhKdMd0urhn1Wll-ZF4" \
+     -d '{"name": "John Doe", "birthDate": "1985-02-20"}'

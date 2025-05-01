@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - mongo
+      - fhir
+      - blockchain
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+      - FHIR_URL=http://fhir:8080
+      - BLOCKCHAIN_URL=http://blockchain:8545
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  fhir:
+    image: hapiproject/hapi:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  blockchain:
+    build: ./blockchain
+    ports:
+      - "8545:8545"
+    volumes:
+      - ./blockchain:/app
+    networks:
+      - app-network
+
+  deployer:
+    build: ./blockchain
+    depends_on:
+      - blockchain
+    command: >
+      sh -c "sleep 10 && npx hardhat run scripts/deploy.js --network localhost"
+    volumes:
+      - ./blockchain:/app
+    networks:
+      - app-network
+
+  frontend:
+    build: ../medledger-ui
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../medledger-ui:/app
+    stdin_open: true
+    tty: true
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:

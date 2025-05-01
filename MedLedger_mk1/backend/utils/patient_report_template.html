@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Patient Report</title>
+    <style>
+      body { font-family: sans-serif; margin: 2rem; }
+      h1 { text-align: center; }
+      h2 { border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; margin-top: 2rem; }
+      .section { margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+  <h1>Patient Report</h1>
+
+  <div class="section">
+    <h2>Profile</h2>
+    <p><strong>Name:</strong> {{ patient_name }}</p>
+    <p><strong>Birth Date:</strong> {{ birth_date }}</p>
+  </div>
+
+  <div class="section">
+    <h2>Allergies</h2>
+    <ul>
+    {% for allergy in allergies %}
+      <li>{{ allergy }}</li>
+    {% else %}
+      <li>No allergies recorded.</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Conditions</h2>
+    <ul>
+    {% for condition in conditions %}
+      <li>{{ condition }}</li>
+    {% else %}
+      <li>No conditions recorded.</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Immunizations</h2>
+    <ul>
+    {% for immunization in immunizations %}
+      <li>{{ immunization }}</li>
+    {% else %}
+      <li>No immunizations recorded.</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Treatments</h2>
+    <ul>
+    {% for treatment in treatments %}
+      <li>{{ treatment }}</li>
+    {% else %}
+      <li>No treatments recorded.</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Observations</h2>
+    <ul>
+    {% for observation in observations %}
+      <li>{{ observation }}</li>
+    {% else %}
+      <li>No observations recorded.</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+</body>
+</html>

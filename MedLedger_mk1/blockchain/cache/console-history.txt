@@ -1,0 +1,5 @@
+const PatientAudit = await ethers.getContractFactory("PatientAudit");
+console.log(events);
+const events = await contract.queryFilter("RecordStored");
+const contract = PatientAudit.attach("0xYourContractAddress"); // use your deployed contract address
+const PatientAudit = await ethers.getContractFactory("PatientAudit");
