@@ -1,0 +1,39 @@
+/* src/pages/LoginPage.css */
+
+.login-page {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+  }
+  
+  .login-header {
+    background: linear-gradient(to right, #c6f0d5, #a8dfff);
+    border-bottom: 5px solid #00b8a9;
+    border-radius: 0 0 1rem 1rem;
+  }
+  
+  .role-card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid transparent;
+  }
+  
+  .role-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #00b8a9;
+  }
+  
+  .role-card svg {
+    color: #00b8a9;
+  }
+  .role-label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #001f3f; /* dark navy */
+    margin-top: 0.5rem;
+  }
+  
+  

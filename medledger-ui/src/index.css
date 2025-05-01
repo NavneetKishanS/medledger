@@ -1,0 +1,28 @@
+/* src/index.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Landing page hero styling */
+.landing-page {
+  height: 100vh;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+}
+
+/* RoleCard custom styling */
+.role-card {
+  width: 18rem;
+  border: none;
+  transition: transform 0.2s;
+}
+.role-card:hover {
+  transform: scale(1.05);
+}

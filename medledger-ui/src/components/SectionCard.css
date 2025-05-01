@@ -1,0 +1,47 @@
+.section-card {
+    border-radius: 1rem;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .section-card-header {
+    background-color: #00b8a9;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.15rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .section-card-body {
+    padding: 1.25rem 1.25rem 1rem;
+  }
+  
+  .latest-line {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+    color: #333;
+  }
+  
+  .latest-text {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .separator {
+    border-top: 1px solid #ddd;
+    margin: 0.75rem 0;
+  }
+  
+  .history .item-date {
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .section-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  }
